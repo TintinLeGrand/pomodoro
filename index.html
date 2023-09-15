@@ -14,10 +14,18 @@
     </header>
     <main>
         <section id="time"></section>
-        <progress id="progression" max="100" value="100"></progress>
-        <aside id="buttons">
-            <button id="workButton">Work</button>
-            <button id="breakButton">Break</button>
+        <progress id="progression" max="100" value="0"></progress>
+        <section>
+            <laber for="numberWork">Work time</laber>
+            <input type="number" name="numberWork" id="numberWork" value="25" min="1" max="50"/>
+            <laber for="numberBreak">Break time</laber>
+            <input type="number" name="numberBreak" id="numberBreak" value="5" min="1" max="25"/>
+        </section>
+        <aside>
+            <button id="start">Start</button>
+            <button id="reset">Reset</button>
+            <button id="work">Work</button>
+            <button id="break">Break</button>
         </aside>
     </main>
     <footer>
