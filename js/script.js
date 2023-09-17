@@ -21,6 +21,8 @@ let htmlWorkMovingTimer= '&nbsp;<i class="fa-regular fa-clock fa-bounce" style="
 let htmlBreakTimer= '&nbsp;<i class="fa-regular fa-clock" style="color: #5C5792;"></i>';
 let htmlBreakMovingTimer= '&nbsp;<i class="fa-regular fa-clock fa-bounce" style="color: #5C5792;"></i>';
 let onPlay= false;
+let workTheme= "--bodyText : #C23028; --header : #77021D; --body : #F6B339; --headerText : #DA7B27; --other : #D7572B;";
+let breakTheme= "--bodyText : #5C5792; --header : #211A44; --body : #BE9CC7; --headerText : #9F8DC3; --other : #E3BAD5;";
 
 // Init page
 workButton.setAttribute("disabled", true);
@@ -29,6 +31,7 @@ timerDisplay(0, workMinutes);
 Notification.requestPermission().then(function (result) {
     notification= true;
   });
+  document.documentElement.style.cssText = workTheme;
 
 // Listener at break and work buttons : change timer and display it
 breakTime.addEventListener("change", () => {
@@ -174,6 +177,7 @@ function timerDisplay(seconds, minutes) {
     document.title= document.title.replace("$time", display(minutes) + ":" + display(seconds));
     workingStatus ? progression.setAttribute("value", timeToMS(workSeconds,workMinutes)) : progression.setAttribute("value", timeToMS(breakSeconds,breakMinutes));
     workingStatus ? progression.setAttribute("max", timeToMS(0,workTime.value)) : progression.setAttribute("max", timeToMS(0,breakTime.value));
+    workingStatus ? document.documentElement.style.cssText = workTheme : document.documentElement.style.cssText = breakTheme;
 }
 
 function notif(){
@@ -184,12 +188,3 @@ const notification = new Notification("Pomodoro Timer", {
   icon: img,
 });
 }
-
-// function changeColor{
-//     if(workingStatus){
-
-//     }
-//     else{
-
-//     }
-// }

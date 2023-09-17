@@ -6,41 +6,48 @@
     font-family: 'Mooli', sans-serif;
 }
 
-:work{
-    --work-bodyText : #C23028;
-    --work-header : #77021D;
-    --work-body : #F6B339;
-    --work-headerText : #DA7B27;
-    --work-other : #D7572B;
+:root{
+    --bodyText : #C23028;
+    --header : #77021D;
+    --body : #F6B339;
+    --headerText : #DA7B27;
+    --other : #D7572B;
 }
 
-:break{
-    --break-bodyText : #5C5792;
-    --break-header2 : #211A44;
-    --break-body2 : #BE9CC7;
-    --break-headerText2 : #9F8DC3;
-    --break-other2 : #E3BAD5;
-}
-
-header{
-    background-color: var(--work-header);
-    color : var(--work-headerText);
+header {
+    background-color: var(--header);
+    color: var(--headerText);
+    font-size: 35px;
     position: fixed;
-    width : 100%;
-    height : 50px;
+    width: 100%;
+    height: 50px;
     top: 0;
 }
 
-footer{
+footer {
+    background-color: var(--header);
+    color: var(--headerText);
     position: fixed;
     bottom: 0;
 }
 
-main{
-    background-color: var(--work-header);
+#time{
+    font-size: 50px;
+    margin: 30px;
+}
+
+#numberWork, #numberBreak{
+    margin-right: 50px;
+}
+
+main {
+    background-color: var(--body);
+    color: var(--bodyText);
+    font-size: 15px;
     position: fixed;
-    width : 100%;
-    top : 50px;
+    width: 100%;
+    height: calc(100% - 100px);
+    top: 50px;
 }
 
 aside{
@@ -49,7 +56,8 @@ aside{
 
 progress{
     position: fixed;
-    background-color: var(--break-other);
+    background-color: var(--header);
+    color: var(--headerText);
     height: 50px;
     width: 100%;
     bottom: 0;
@@ -60,29 +68,3 @@ button{
     width  : 50px;
     height : 50px;
 }
-
-main#time{
-    margin-bottom: 50px;
-}
-
-button#work, button#break{
-    margin: 0px;
-}
-
-button#start, button#reset{
-    margin-top: 150px;
-}
-
-/*
-bodyText : #C23028;
-header : #77021D;
-body : #F6B339;
-headerText : #DA7B27;
-other : #D7572B;
-
-bodyText2 : #5C5792;
-header2 : #211A44;
-body2 : #BE9CC7;
-headerText2 : #9F8DC3;
-other2 : #E3BAD5;
-*/
