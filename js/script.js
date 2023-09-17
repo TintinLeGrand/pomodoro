@@ -17,23 +17,34 @@ let breakMinutes = parseInt(breakTime.getAttribute("value"));
 let interval;
 
 // Init page
-breakButton.setAttribute("disabled", true);
+workButton.setAttribute("disabled", true);
 resetButton.style.display = "none";
+timerDisplay(0, workMinutes)
 
+// Listener at break and work buttons : change timer and display it
 breakTime.addEventListener("change", () => {
     breakMinutes = breakTime.value;
+    if(!workingState){
+        timerDisplay(0, breakMinutes)
+    }
 })
 
 workTime.addEventListener("change", () => {
     workMinutes = workTime.value;
+    if(workingState){
+        timerDisplay(0, workMinutes)
+    }
 })
 
+// Add listener to all the buttons, and execute all the necessary actions (hide buttons, and activate others)
 startButton.addEventListener("click", () => {
     resetButtonState = true;
     startButton.style.display = "none";
     resetButton.style.display = "block";
     workButton.setAttribute("disabled", true);
     breakButton.setAttribute("disabled", true);
+    breakTime.setAttribute("disabled", true);
+    workTime.setAttribute("disabled", true);
     manipInterval();
 });
 
@@ -42,12 +53,14 @@ resetButton.addEventListener("click", () => {
     manipInterval();
     startButton.style.display = "block";
     resetButton.style.display = "none";
-    if (workingState) {
-        workButton.setAttribute("disabled", false);
+    if (!workingState) {
+        workButton.removeAttribute("disabled");
     }
     else {
-        breakButton.setAttribute("disabled", false);
+        breakButton.removeAttribute("disabled");
     }
+    breakTime.removeAttribute("disabled");
+    workTime.removeAttribute("disabled");
     workSeconds= 0;
     breakSeconds= 0;
     workMinutes = workTime.value;
@@ -56,13 +69,21 @@ resetButton.addEventListener("click", () => {
 });
 
 workButton.addEventListener("click", () => {
-
+    workingState = true;
+    workButton.setAttribute("disabled", true);
+    breakButton.removeAttribute("disabled");
+    timerDisplay(0, workMinutes)
+    
 });
 
 breakButton.addEventListener("click", () => {
-
+    workingState = false;
+    breakButton.setAttribute("disabled", true);
+    workButton.removeAttribute("disabled");
+    timerDisplay(0, breakMinutes)
 });
 
+// Launch timer, or stop it
 function manipInterval() {
     if (resetButtonState) {
         interval = setInterval(() => {
@@ -76,7 +97,6 @@ function manipInterval() {
 
 function countDown() {
     // Function which launches the countdown
-    let seconds, minutes;
     // Calculate each case (if you are in break mode or not, and if you are at the end of a minute)
     if (workingState && workSeconds <= 0) {
         workMinutes--;
@@ -99,13 +119,13 @@ function countDown() {
 
     // Reset timer, and switch the mode at the end of the timer
     if (workMinutes == 0 && workSeconds == 0) {
-        workMinutes = workTime;
+        workMinutes = workTime.value;
         workSeconds = 0;
         timerDisplay(workSeconds, workMinutes);
         workingState = !workingState;
     }
     if (breakMinutes == 0 && breakSeconds == 0) {
-        breakMinutes = breakTime;
+        breakMinutes = breakTime.value;
         breakSeconds = 0;
         timerDisplay(workSeconds, workMinutes);
         workingState = !workingState;
@@ -135,14 +155,7 @@ function display(time) {
 function timerDisplay(seconds, minutes) {
     // Function which displays the timer in the HTML document + progression bar
     HTMLTimer.innerHTML = display(minutes) + ":" + display(seconds);
-    // title.innerHTML.replace("$time", display(minutes) + ":" + display(seconds))
-    let percent = percCalc();
-    progression.setAttribute("value", percent);
-}
-
-function percCalc() {
-    if (workingState) {
-        return timeToMS(workSeconds, workMinutes) * 100 / timeToMS(0, workTime);
-    }
-    return timeToMS(breakSeconds, breakMinutes) * 100 / timeToMS(0, breakTime);
+    // title.innerText.replace("$time", display(minutes) + ":" + display(seconds))
+    workingState ? progression.setAttribute("value", timeToMS(workSeconds,workMinutes)) : progression.setAttribute("value", timeToMS(breakSeconds,breakMinutes));
+    workingState ? progression.setAttribute("max", timeToMS(0,workTime.value)) : progression.setAttribute("max", timeToMS(0,breakTime.value));
 }
