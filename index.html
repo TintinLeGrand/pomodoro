@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="title">$time - Pomodoro Timer</title>
+    <link rel="stylesheet" href="https://fonts.google.com/">
+    <link rel="stylesheet" href="https://fontawesome.com/">
     <script defer src="js/script.js"></script>
 </head>
 
@@ -13,14 +15,14 @@
 
     </header>
     <main>
-        <section id="time"></section>
+        <div id="time"></div>
         <progress id="progression" max="100" value="0"></progress>
-        <section>
-            <laber for="numberWork">Work time</laber>
-            <input type="number" name="numberWork" id="numberWork" value="25" min="1" max="50"/>
-            <laber for="numberBreak">Break time</laber>
-            <input type="number" name="numberBreak" id="numberBreak" value="5" min="1" max="25"/>
-        </section>
+        <div>
+            <label for="numberWork">Work time</label>
+            <input type="number" name="numberWork" id="numberWork" value="25" min="1" max="50" />
+            <label for="numberBreak">Break time</label>
+            <input type="number" name="numberBreak" id="numberBreak" value="5" min="1" max="25" />
+        </div>
         <aside>
             <button id="start">Start</button>
             <button id="reset">Reset</button>
