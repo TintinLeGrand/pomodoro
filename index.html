@@ -5,33 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="title">$time - Pomodoro Timer</title>
-    <link rel="stylesheet" href="https://fonts.google.com/">
-    <link rel="stylesheet" href="https://fontawesome.com/">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/6ccffd5264.js" crossorigin="anonymous"></script>
     <script defer src="js/script.js"></script>
 </head>
 
 <body>
-    <header>
+    <header id="header">
+        <p>Test</p>
 
     </header>
-    <main>
+    <main id="main">
         <div id="time"></div>
-        <progress id="progression" max="100" value="0"></progress>
         <div>
             <label for="numberWork">Work time</label>
             <input type="number" name="numberWork" id="numberWork" value="25" min="1" max="50" />
             <label for="numberBreak">Break time</label>
             <input type="number" name="numberBreak" id="numberBreak" value="5" min="1" max="25" />
         </div>
-        <aside>
-            <button id="start">Start</button>
-            <button id="reset">Reset</button>
+        <aside id="aside">
+            <button id="start"><i class="fa-solid fa-play"></i></button>
+            <button id="reset"><i class="fa-solid fa-stop"></i></button>
+            <br>
             <button id="work">Work</button>
             <button id="break">Break</button>
         </aside>
     </main>
-    <footer>
-
+    <footer id="footer">
+        <progress id="progression" max="100" value="0"></progress>
     </footer>
 </body>
 
