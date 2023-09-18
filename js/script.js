@@ -142,9 +142,9 @@ function countDown() {
     if (breakMinutes == 0 && breakSeconds == 0) {
         breakMinutes = breakTime.value;
         breakSeconds = 0;
+        timerDisplay(workSeconds, workMinutes);
         workingStatus = !workingStatus;
         if(notification)notif();
-        timerDisplay(workSeconds, workMinutes);
     }
 }
 
