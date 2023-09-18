@@ -19,8 +19,8 @@ let interval;
 let htmlTimer= '&nbsp;<i class="fa-regular fa-clock" style="color: --bodyText;"></i>';
 let htmlMovingTimer= '&nbsp;<i class="fa-regular fa-clock fa-bounce" style="color: --bodyText;"></i>';
 let onPlay= false;
-let workTheme= "--bodyText : #516079; --header : #2E3244; --body : #FFFFFF; --headerText : #C5C6C6; --other : #F1895C;";
-let breakTheme= "--bodyText : #5C5792; --header : #211A44; --body : #BE9CC7; --headerText : #9F8DC3; --other : #E3BAD5;";
+let workTheme= "--bodyText : #cc3300; --header : #802b00; --body : #FFFFFF; --headerText : #C5C6C6; --other : #a4a9c1;";
+let breakTheme= "--bodyText : #516079; --header : #2E3244; --body : #FFFFFF; --headerText : #C5C6C6; --other : #ff9966;";
 
 // Init page
 workButton.setAttribute("disabled", true);
