@@ -48,10 +48,6 @@ header h1 {
     margin-right: 15px;
 }
 
-div.labelInput {
-    width : 45%;
-}
-
 main {
     background-color: var(--body);
     color: var(--bodyText);
