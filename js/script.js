@@ -23,7 +23,6 @@ let workTheme= "--bodyText : #cc3300; --header : #802b00; --body : #FFFFFF; --he
 let breakTheme= "--bodyText : #516079; --header : #2E3244; --body : #FFFFFF; --headerText : #C5C6C6; --other : #ff9966;";
 
 // Init page
-screen.lockOrientation("portrait");
 workButton.setAttribute("disabled", true);
 resetButton.style.display = "none";
 timerDisplay(0, workMinutes);
