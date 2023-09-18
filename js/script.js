@@ -135,16 +135,16 @@ function countDown() {
     if (workMinutes == 0 && workSeconds == 0) {
         workMinutes = workTime.value;
         workSeconds = 0;
-        timerDisplay(workSeconds, workMinutes);
         workingStatus = !workingStatus;
         if(notification)notif();
+        timerDisplay(workSeconds, workMinutes);
     }
     if (breakMinutes == 0 && breakSeconds == 0) {
         breakMinutes = breakTime.value;
         breakSeconds = 0;
-        timerDisplay(workSeconds, workMinutes);
         workingStatus = !workingStatus;
         if(notification)notif();
+        timerDisplay(workSeconds, workMinutes);
     }
 }
 
