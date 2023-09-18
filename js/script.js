@@ -16,10 +16,8 @@ let workMinutes = parseInt(workTime.getAttribute("value"));
 let breakSeconds = 0;
 let breakMinutes = parseInt(breakTime.getAttribute("value"));
 let interval;
-let htmlWorkTimer= '&nbsp;<i class="fa-regular fa-clock" style="color: #c23028;"></i>';
-let htmlWorkMovingTimer= '&nbsp;<i class="fa-regular fa-clock fa-bounce" style="color: #c23028;"></i>';
-let htmlBreakTimer= '&nbsp;<i class="fa-regular fa-clock" style="color: #5C5792;"></i>';
-let htmlBreakMovingTimer= '&nbsp;<i class="fa-regular fa-clock fa-bounce" style="color: #5C5792;"></i>';
+let htmlTimer= '&nbsp;<i class="fa-regular fa-clock" style="color: --bodyText;"></i>';
+let htmlMovingTimer= '&nbsp;<i class="fa-regular fa-clock fa-bounce" style="color: --bodyText;"></i>';
 let onPlay= false;
 let workTheme= "--bodyText : #C23028; --header : #77021D; --body : #F6B339; --headerText : #DA7B27; --other : #D7572B;";
 let breakTheme= "--bodyText : #5C5792; --header : #211A44; --body : #BE9CC7; --headerText : #9F8DC3; --other : #E3BAD5;";
@@ -35,6 +33,7 @@ Notification.requestPermission().then(function (result) {
 
 // Listener at break and work buttons : change timer and display it
 breakTime.addEventListener("change", () => {
+    breakTime.value<1 ? breakTime.value= 1 : breakTime.value>60 ? breakTime.value=60 : breakTime.value = Math.trunc(breakTime.value);
     breakMinutes = breakTime.value;
     if(!workingStatus){
         timerDisplay(0, breakMinutes)
@@ -42,6 +41,7 @@ breakTime.addEventListener("change", () => {
 })
 
 workTime.addEventListener("change", () => {
+    workTime.value<1 ? workTime.value= 1 : workTime.value>60 ? workTime.value=60 : workTime.value = Math.trunc(workTime.value);
     workMinutes = workTime.value;
     if(workingStatus){
         timerDisplay(0, workMinutes)
@@ -142,9 +142,9 @@ function countDown() {
     if (breakMinutes == 0 && breakSeconds == 0) {
         breakMinutes = breakTime.value;
         breakSeconds = 0;
-        timerDisplay(workSeconds, workMinutes);
         workingStatus = !workingStatus;
         if(notification)notif();
+        timerDisplay(workSeconds, workMinutes);
     }
 }
 
@@ -170,7 +170,7 @@ function display(time) {
 
 function timerDisplay(seconds, minutes) {
     // Function which displays the timer in the HTML document + progression bar
-    let html= onPlay ? workingStatus ? htmlWorkMovingTimer : htmlBreakMovingTimer : workingStatus ? htmlWorkTimer : htmlBreakTimer;
+    let html= onPlay ? workingStatus ? htmlMovingTimer : htmlMovingTimer : workingStatus ? htmlTimer : htmlTimer;
     HTMLTimer.innerHTML = display(minutes) + ":" + display(seconds) + html;
     document.title= "$time - Pomodoro Timer"
     // The previous line resets the document title in order to be modified each time with the following line
@@ -181,7 +181,8 @@ function timerDisplay(seconds, minutes) {
 }
 
 function notif(){
-    const img = htmlWorkTimer;
+    // Function to notify user when a period ends, if he accepted notifications
+    const img = htmlTimer;
     const text = !workingStatus ? "It's now time to take a break ;))" : "It's time to work !!"
 const notification = new Notification("Pomodoro Timer", {
   body: text,
