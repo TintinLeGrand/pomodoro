@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="title">$time - Pomodoro Timer</title>
+    <title id="title">Pomodoro Timer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="ressources/pomodoro.ico" />
     <script src="https://kit.fontawesome.com/6ccffd5264.js" crossorigin="anonymous"></script>
     <script defer src="js/script.js"></script>
 </head>
@@ -21,14 +22,15 @@
     <main id="main">
         <div id="time"></div>
         <div>
-            <div class="labelInput">
+            <div class="content">
                 <label for="numberWork">Work time</label>
                 <input type="number" name="numberWork" id="numberWork" value="25" min="1" max="60" />
             </div>
-            <div class="labelInput">
+            <div class="content">
                 <label for="numberBreak">Break time</label>
                 <input type="number" name="numberBreak" id="numberBreak" value="5" min="1" max="60" />
             </div>
+
         </div>
         <aside id="aside">
             <button id="start"><i class="fa-solid fa-play"></i></button>

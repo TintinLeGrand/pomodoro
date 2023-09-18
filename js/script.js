@@ -172,9 +172,7 @@ function timerDisplay(seconds, minutes) {
     // Function which displays the timer in the HTML document + progression bar
     let html= onPlay ? workingStatus ? htmlMovingTimer : htmlMovingTimer : workingStatus ? htmlTimer : htmlTimer;
     HTMLTimer.innerHTML = display(minutes) + ":" + display(seconds) + html;
-    document.title= "$time - Pomodoro Timer"
-    // The previous line resets the document title in order to be modified each time with the following line
-    document.title= document.title.replace("$time", display(minutes) + ":" + display(seconds));
+    document.title= display(minutes) + ":" + display(seconds) + " - Pomodoro Timer";
     workingStatus ? progression.setAttribute("value", timeToMS(workSeconds,workMinutes)) : progression.setAttribute("value", timeToMS(breakSeconds,breakMinutes));
     workingStatus ? progression.setAttribute("max", timeToMS(0,workTime.value)) : progression.setAttribute("max", timeToMS(0,breakTime.value));
     workingStatus ? document.documentElement.style.cssText = workTheme : document.documentElement.style.cssText = breakTheme;
@@ -182,7 +180,7 @@ function timerDisplay(seconds, minutes) {
 
 function notif(){
     // Function to notify user when a period ends, if he accepted notifications
-    const img = htmlTimer;
+    const img = "ressources/pomodoro.ico";
     const text = !workingStatus ? "It's now time to take a break ;))" : "It's time to work !!"
 const notification = new Notification("Pomodoro Timer", {
   body: text,
