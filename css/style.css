@@ -17,8 +17,6 @@ header {
 }
 
 header h1{
-    display: inline-block;
-    vertical-align: auto;
     margin: auto;
     font-size: 30px;
     font-weight: bolder;
