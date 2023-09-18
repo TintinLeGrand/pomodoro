@@ -19,7 +19,7 @@ let interval;
 let htmlTimer= '&nbsp;<i class="fa-regular fa-clock" style="color: --bodyText;"></i>';
 let htmlMovingTimer= '&nbsp;<i class="fa-regular fa-clock fa-bounce" style="color: --bodyText;"></i>';
 let onPlay= false;
-let workTheme= "--bodyText : #C23028; --header : #77021D; --body : #F6B339; --headerText : #DA7B27; --other : #D7572B;";
+let workTheme= "--bodyText : #516079; --header : #2E3244; --body : #FFFFFF; --headerText : #C5C6C6; --other : #F1895C;";
 let breakTheme= "--bodyText : #5C5792; --header : #211A44; --body : #BE9CC7; --headerText : #9F8DC3; --other : #E3BAD5;";
 
 // Init page
