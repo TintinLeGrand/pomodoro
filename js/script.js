@@ -177,7 +177,7 @@ function timerDisplay(seconds, minutes) {
     workingStatus ? progression.setAttribute("value", timeToMS(workSeconds,workMinutes)) : progression.setAttribute("value", timeToMS(breakSeconds,breakMinutes));
     workingStatus ? progression.setAttribute("max", timeToMS(0,workTime.value)) : progression.setAttribute("max", timeToMS(0,breakTime.value));
     workingStatus ? document.documentElement.style.cssText = workTheme : document.documentElement.style.cssText = breakTheme;
-    label.innerHTML = workingStatus ?  '<i class="fa-solid fa-person-digging"></i> Travail <i class="fa-solid fa-person-digging"></i>' : '<i class="fa-solid fa-mug-saucer"></i> Pause <i class="fa-solid fa-mug-saucer"></i>';
+    label.innerHTML = workingStatus ?  '<i class="fa-solid fa-person-digging"></i> Work <i class="fa-solid fa-person-digging"></i>' : '<i class="fa-solid fa-mug-saucer"></i> Break <i class="fa-solid fa-mug-saucer"></i>';
 }
 
 function notif(){
