@@ -126,9 +126,13 @@ button#break {
 
 button#break:disabled,
 button#work:disabled {
-    opacity: 0.25;
+    opacity: 0.5;
+    color: black;
+    background-color: whitesmoke;
 }
 
-/* div{
-    display: flex;
-} */
+#progLab{
+    position: fixed;
+    bottom: 0;
+    left: auto;
+}
