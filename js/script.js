@@ -11,6 +11,7 @@ let startButton = document.getElementById("start");
 let resetButton = document.getElementById("reset");
 let breakTime = document.getElementById("numberBreak");
 let workTime = document.getElementById("numberWork");
+let label= document.getElementById("progLab");
 let workSeconds = 0;
 let workMinutes = parseInt(workTime.getAttribute("value"));
 let breakSeconds = 0;
@@ -170,12 +171,13 @@ function display(time) {
 
 function timerDisplay(seconds, minutes) {
     // Function which displays the timer in the HTML document + progression bar
-    let html= onPlay ? workingStatus ? htmlMovingTimer : htmlMovingTimer : workingStatus ? htmlTimer : htmlTimer;
+    let html= onPlay ? htmlMovingTimer : htmlTimer;
     HTMLTimer.innerHTML = display(minutes) + ":" + display(seconds) + html;
     document.title= display(minutes) + ":" + display(seconds) + " - Pomodoro Timer";
     workingStatus ? progression.setAttribute("value", timeToMS(workSeconds,workMinutes)) : progression.setAttribute("value", timeToMS(breakSeconds,breakMinutes));
     workingStatus ? progression.setAttribute("max", timeToMS(0,workTime.value)) : progression.setAttribute("max", timeToMS(0,breakTime.value));
     workingStatus ? document.documentElement.style.cssText = workTheme : document.documentElement.style.cssText = breakTheme;
+    label.innerHTML = workingStatus ?  '<i class="fa-solid fa-person-digging"></i> Travail <i class="fa-solid fa-person-digging"></i>' : '<i class="fa-solid fa-mug-saucer"></i> Pause <i class="fa-solid fa-mug-saucer"></i>';
 }
 
 function notif(){
