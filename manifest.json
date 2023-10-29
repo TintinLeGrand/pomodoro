@@ -1,12 +1,12 @@
 {
 "display_override": ["window-controls-overlay"], 
 "protocol_handlers": [{"protocol":"ethan.leneindre@etu.unicaen.fr","url":"/newEmail?to=%s"}], 
-    "name": "Pomodoro Timer",
-    "short_name": "This name will show in your Windows taskbar, in the start menu, and Android homescreen",
-    "start_url": "The URL that should be loaded when your application is opened",
+    "name": "Pomodoro Timer - Ethan LN",
+    "short_name": "Pomodoro Timer",
+    "start_url": "https://tintinlegrand.github.io/pomodoro/",
     "display": "standalone",
-    "description": "A description for your application",
-    "lang": " The default language of your application",
+    "description": "It's a pomodoro (tomato) timer which helps you to be more efficient in your way to work.",
+    "lang": "french",
     "dir": "auto",
     "theme_color": "#802b00",
     "background_color": "#FFFFFF",
@@ -39,9 +39,9 @@
     "prefer_related_applications": false,
     "shortcuts": [
         {
-            "name": "The name you would like to be displayed for your shortcut",
-            "url": "The url you would like to open when the user chooses this shortcut. This must be a URL local to your PWA. For example: If my start_url is /, this URL must be something like /shortcut",
-            "description": "A description of the functionality of this shortcut"
+            "name": "Pomodoro Timer",
+            "url": "/",
+            "description": "To have your timer everywhere, easily and fast !"
         }
     ]
 }
