@@ -3,7 +3,7 @@
 "protocol_handlers": [{"protocol":"ethan.leneindre@etu.unicaen.fr","url":"/newEmail?to=%s"}], 
     "name": "Pomodoro Timer - Ethan LN",
     "short_name": "Pomodoro Timer",
-    "start_url": "/",
+    "start_url": "https://tintinlegrand.github.io/pomodoro/",
     "display": "standalone",
     "description": "It's a pomodoro (tomato) timer which helps you to be more efficient in your way to work.",
     "lang": "french",
