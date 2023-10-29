@@ -34,11 +34,6 @@
             "platform": "windows",
             "url": "https://tintinlegrand.github.io/pomodoro/",
             "id": "github.Pomodoro"
-        },
-        {
-            "platform": "play",
-            "url": "https://tintinlegrand.github.io/pomodoro/",
-            "id": "github.Pomodoro"
         }
     ],
     "prefer_related_applications": false,
