@@ -20,7 +20,7 @@
     "orientation": "any",
     "icons": [
         {
-            "src": "https://github.com/TintinLeGrand/pomodoro/blob/main/ressources/pomodoro.ico",
+            "src": "ressources/pomodoro.ico",
             "sizes": "192x192",
             "type": "image/ico",
             "purpose": "any"
@@ -28,7 +28,7 @@
     ],
     "screenshots": [
         {
-            "src": "https://github.com/TintinLeGrand/pomodoro/blob/main/ressources/screenshot.png",
+            "src": "ressources/screenshot.png",
             "sizes": "1920x963",
             "type": "image/png",
             "description": "A screenshot of the home page"
@@ -46,7 +46,7 @@
     "shortcuts": [
         {
             "name": "Pomodoro Timer",
-            "url": "/",
+            "url": "https://tintinlegrand.github.io/pomodoro/",
             "description": "To have your timer everywhere, easily and fast !"
         }
     ]
