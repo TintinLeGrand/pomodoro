@@ -136,15 +136,15 @@ function countDown() {
     if (workMinutes == 0 && workSeconds == 0) {
         workMinutes = workTime.value;
         workSeconds = 0;
-        workingStatus = !workingStatus;
         if(notification)notif();
+        workingStatus = !workingStatus;
         timerDisplay(workSeconds, workMinutes);
     }
     if (breakMinutes == 0 && breakSeconds == 0) {
         breakMinutes = breakTime.value;
         breakSeconds = 0;
-        workingStatus = !workingStatus;
         if(notification)notif();
+        workingStatus = !workingStatus;
         timerDisplay(workSeconds, workMinutes);
     }
 }
@@ -171,19 +171,19 @@ function display(time) {
 
 function timerDisplay(seconds, minutes) {
     // Function which displays the timer in the HTML document + progression bar
-    let html= onPlay ? htmlMovingTimer : htmlTimer;
+    let html = onPlay ? htmlMovingTimer : htmlTimer;
     HTMLTimer.innerHTML = display(minutes) + ":" + display(seconds) + html;
-    document.title= display(minutes) + ":" + display(seconds) + " - Pomodoro Timer";
-    workingStatus ? progression.setAttribute("value", timeToMS(workSeconds,workMinutes)) : progression.setAttribute("value", timeToMS(breakSeconds,breakMinutes));
-    workingStatus ? progression.setAttribute("max", timeToMS(0,workTime.value)) : progression.setAttribute("max", timeToMS(0,breakTime.value));
+    document.title =  display(minutes) + ":" + display(seconds) + (workingStatus ? "ᵂᴼᴿᴷ" : "ᴮᴿᴱᴬᴷ") + " - Pomodoro Timer";
+    workingStatus ? progression.setAttribute("value", timeToMS(workSeconds, workMinutes)) : progression.setAttribute("value", timeToMS(breakSeconds, breakMinutes));
+    workingStatus ? progression.setAttribute("max", timeToMS(0, workTime.value)) : progression.setAttribute("max", timeToMS(0, breakTime.value));
     workingStatus ? document.documentElement.style.cssText = workTheme : document.documentElement.style.cssText = breakTheme;
-    label.innerHTML = workingStatus ?  '<i class="fa-solid fa-person-digging"></i> Work <i class="fa-solid fa-person-digging"></i>' : '<i class="fa-solid fa-mug-saucer"></i> Break <i class="fa-solid fa-mug-saucer"></i>';
+    label.innerHTML = workingStatus ? '<i class="fa-solid fa-person-digging"></i> Work <i class="fa-solid fa-person-digging"></i>' : '<i class="fa-solid fa-mug-saucer"></i> Break <i class="fa-solid fa-mug-saucer"></i>';
 }
 
 function notif(){
     // Function to notify user when a period ends, if he accepted notifications
     const img = "ressources/pomodoro.ico";
-    const text = !workingStatus ? "It's now time to take a break ;))" : "It's time to work !!"
+    const text = workingStatus ? "It's now time to take a break ;))" : "It's time to work !!"
 const notification = new Notification("Pomodoro Timer", {
   body: text,
   icon: img,
